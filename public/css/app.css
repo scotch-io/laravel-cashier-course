@@ -5862,6 +5862,33 @@ section {
       color: #BBB;
       margin-bottom: 20px; }
 
+.subscription-option input[type=radio] {
+  display: none; }
+
+.subscription-option label {
+  display: block;
+  width: 100%;
+  min-height: 200px;
+  border-radius: 4px;
+  background: #F2F2F2;
+  color: #545454;
+  font-size: 40px;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 50px;
+  transition: 0.3s ease all; }
+
+.subscription-option .plan-price {
+  font-family: "Oswald", Arial, Helvetica, sans-serif; }
+
+.subscription-option .plan-name {
+  display: block;
+  font-size: 24px; }
+
+.subscription-option input[type=radio]:checked + label {
+  background: #0B79EE;
+  color: #FFF; }
+
 .auth-card {
   margin-bottom: 50px;
   margin-top: 50px;

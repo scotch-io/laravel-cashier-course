@@ -40,6 +40,44 @@
             <h2>Subscription Info</h2>
         </div>
 
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-4">
+                    
+                    <div class="subscription-option">
+                        <input type="radio" id="plan-bronze" name="plan" value="bronze" checked>
+                        <label for="plan-bronze">
+                            <span class="plan-price">$5 <small>/mo</small></span>
+                            <span class="plan-name">Bronze</span>
+                        </label>
+                    </div>
+
+                </div>
+                <div class="col-xs-4">
+                    
+                    <div class="subscription-option">
+                        <input type="radio" id="plan-silver" name="plan" value="silver">
+                        <label for="plan-silver">
+                            <span class="plan-price">$10 <small>/mo</small></span>
+                            <span class="plan-name">Silver</span>
+                        </label>
+                    </div>
+
+                </div>
+                <div class="col-xs-4">
+                    
+                    <div class="subscription-option">
+                        <input type="radio" id="plan-gold" name="plan" value="gold">
+                        <label for="plan-gold">
+                            <span class="plan-price">$15 <small>/mo</small></span>
+                            <span class="plan-name">Gold</span>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
         {{-- credit card info --}}
         <div class="section-header">
             <h2>Credit Card Info</h2>
