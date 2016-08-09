@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
+
+    use Billable;
+
     /**
      * The attributes that are mass assignable.
      *
