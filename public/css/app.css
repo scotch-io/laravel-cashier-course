@@ -5761,6 +5761,8 @@ h1, h2, h3, h4, h5, h6 {
   background: #FFF;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
+  .card.card-padded {
+    padding: 30px; }
   .card .img-container {
     display: block;
     background-size: cover;

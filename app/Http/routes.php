@@ -7,6 +7,8 @@ Route::get('/', 'SiteController@showHome');
 Route::auth();
 
 // subscription routes
+Route::get('subscribe', 'SubscribeController@showSubscribe');
+Route::post('subscribe', 'SubscribeController@processSubscribe');
 
 // account routes
 
