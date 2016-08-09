@@ -1,0 +1,23 @@
+.post-single  {
+  margin-bottom: 50px;
+  margin-top: 50px;
+
+  .img-container  {
+    height: 500px;
+  }
+
+  .card-content   {
+    padding: 50px 100px;
+    
+    h1  {
+      font-size: 50px;
+      margin: 0 0 20px;
+    }
+
+    .byline   {
+      font-size: 14px;
+      color: #BBB;
+      margin-bottom: 20px;
+    }
+  }
+}

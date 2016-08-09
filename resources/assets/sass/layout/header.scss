@@ -1,0 +1,12 @@
+#site-header  {
+  .navbar     {
+    border-radius: 0;
+    margin: 0;
+    border: none;
+
+    a       {
+      font-family: $header-font;
+      font-style: italic;
+    }
+  }
+}
