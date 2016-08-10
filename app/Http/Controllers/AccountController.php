@@ -28,10 +28,24 @@ class AccountController extends Controller
         $user = $request->user();
 
         // get the plan
-        $plan = $request->input('plan');
+        $plan = $request->input('plan');        
 
-        // change the plan
-        $user->subscription('main')->swap($plan);
+        // if a user is cancelled
+        if ($user->subscribed('main') and $user->subscription('main')->onGracePeriod()) {
+
+            if ($user->onPlan($plan)) {
+                // resume the plan
+                $user->subscription('main')->resume();
+            } else {
+                // resume and switch plan
+                $user->subscription('main')->resume()->swap($plan);
+            }
+
+        // if not cancelled, and switch
+        } else {
+            // change the plan
+            $user->subscription('main')->swap($plan);
+        }
 
         return redirect('account')->with(['success' => 'Subscription updated.']);
     }

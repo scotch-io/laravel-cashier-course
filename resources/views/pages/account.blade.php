@@ -51,22 +51,22 @@
                         <div class="form-group">
                             <select name="plan" class="form-control">
                                 <option value="bronze" 
-                                    {{ ($user->subscription('main')->stripe_plan) == 'bronze' ? 'selected' : '' }}>
+                                    {{ ($user->onPlan('bronze')) ? 'selected' : '' }}>
                                     Bronze ($5/mo)
                                 </option>
                                 <option value="silver" 
-                                    {{ ($user->subscription('main')->stripe_plan) == 'silver' ? 'selected' : '' }}>
+                                    {{ ($user->onPlan('silver')) ? 'selected' : '' }}>
                                     Silver ($10/mo)
                                 </option>
                                 <option value="gold" 
-                                    {{ ($user->subscription('main')->stripe_plan) == 'gold' ? 'selected' : '' }}>
+                                    {{ ($user->onPlan('gold')) ? 'selected' : '' }}>
                                     Gold ($15/mo)
                                 </option>
                             </select>
                         </div>
 
                         <button type="submit" class="btn btn-primary">
-                            Update Plan
+                            {{ $user->subscription('main')->onGracePeriod() ? 'Reactivate' : 'Update Plan' }}
                         </button>
                     </form>
 
