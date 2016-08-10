@@ -6,4 +6,7 @@ if(e&&1===a.nodeType)while(c=e[d++])a.removeAttribute(c)}}),hb={set:function(a,b
 $(document).ready(function() {
 
 });
+$(document).ready(function() {
+
+});
 //# sourceMappingURL=all.js.map
