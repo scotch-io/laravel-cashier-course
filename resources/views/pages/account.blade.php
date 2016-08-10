@@ -16,6 +16,14 @@
             <h2>Your Subscription</h2>
         </div>
 
+        {{-- check if user is on their grace period --}}
+        @if ($user->subscription('main')->onGracePeriod())
+            <div class="alert alert-danger text-center">
+                You have cancelled your account.<br>
+                You have access to Animgalgram until {{ $user->subscription('main')->ends_at->format('F d, Y') }}.
+            </div>
+        @endif
+
         @if ( ! $user->subscribed('main'))
             <div class="jumbotron text-center">
                 <p>You don't have a subscription.</p>
@@ -120,7 +128,7 @@
                     <tr>
                         <td>{{ $invoice->date()->toFormattedDateString() }}</td>
                         <td>{{ $invoice->total() }}</td>
-                        <td class="col-xs-2">
+                        <td class="col-xs-2 ">
                             <a href="/account/invoices/{{ $invoice->id }}" class="btn btn-primary btn-sm">Download</a>
                         </td>
                     </tr>
@@ -133,9 +141,11 @@
         @endif
 
         {{-- delete subscription --}}
-        <div class="section-header">
-            <h2>Delete Subscription</h2>
-        </div>
+        <form action="/account/subscription" method="POST" class="text-right">
+            {!! csrf_field() !!}
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-link">Cancel Subscription</button>
+        </form>
 
     </div>
 </section>

@@ -70,7 +70,12 @@ class AccountController extends Controller
      */
     public function deleteSubscription(Request $request)
     {
+        $user = $request->user();
 
+        // cancel the subscription
+        $user->subscription('main')->cancel();
+
+        return redirect('account')->with(['success' => 'Subscription cancelled.']);
     }
 
 }
