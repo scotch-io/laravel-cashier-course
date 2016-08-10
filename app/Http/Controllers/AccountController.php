@@ -39,7 +39,17 @@ class AccountController extends Controller
      */
     public function updateCard(Request $request)
     {
+        // get the user
+        $user = $request->user();
 
+        // get the cc token
+        $ccToken = $request->input('cc_token');
+
+        // update the card
+        $user->updateCard($ccToken);
+
+        // return a redirect back to account
+        return redirect('account')->with(['success' => 'Credit card updated.']);
     }
 
     /**
