@@ -15,7 +15,17 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('welcome', 'SubscribeController@showWelcome')->middleware('subscribed');
 
     // account routes
+    // show the account
+    Route::get('account', 'AccountController@showAccount');
 
+    // update subscription
+    Route::post('account/subscription', 'AccountController@updateSubscription');
+
+    // update credit card
+    Route::post('account/card', 'AccountController@updateCard');
+
+    // delete subscription
+    Route::delete('account/subscription', 'AccountController@deleteSubscription');
 });
 
 // single post route

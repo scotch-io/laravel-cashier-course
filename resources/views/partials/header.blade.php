@@ -11,6 +11,7 @@
             @endif
 
             @if (Auth::user())
+                <li><a href="/account">{{ Auth::user()->name }}</a></li>
                 <li><a href="/logout">Logout</a></li>
             @else
                 <li><a href="/login">Login</a></li>
