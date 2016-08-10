@@ -114,6 +114,21 @@
             <h2>Billing History</h2>
         </div>
 
+        @if (count($invoices) > 0)
+            <table class="table table-bordered table-striped table-hover">
+                @foreach ($invoices as $invoice)
+                    <tr>
+                        <td>{{ $invoice->date()->toFormattedDateString() }}</td>
+                        <td>{{ $invoice->total() }}</td>
+                    </tr>
+                @endforeach 
+            </table>
+        @else
+            <div class="jumbotron text-center">
+                <p>No billing history</p>
+            </div>
+        @endif
+
         {{-- delete subscription --}}
         <div class="section-header">
             <h2>Delete Subscription</h2>
