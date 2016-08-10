@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
+use App\Post;
 use Auth;
 
 class SubscribeController extends Controller
@@ -63,6 +64,15 @@ class SubscribeController extends Controller
         }
         
         return redirect('welcome');
+    }
+
+    /**
+     * Show the welcome page
+     */
+    public function showWelcome()
+    {
+        $posts = Post::where('premium', true)->get();
+        return view('pages.welcome', compact('posts'));
     }
     
 }
