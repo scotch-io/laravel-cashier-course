@@ -12,9 +12,10 @@ class AccountController extends Controller
     /**
      * Show the account page
      */
-    public function showAccount()
+    public function showAccount(Request $request)
     {
-        return view('pages.account');
+        $user = $request->user();
+        return view('pages.account', compact('user'));
     }
 
     /**
@@ -22,7 +23,15 @@ class AccountController extends Controller
      */
     public function updateSubscription(Request $request)
     {
+        $user = $request->user();
 
+        // get the plan
+        $plan = $request->input('plan');
+
+        // change the plan
+        $user->subscription('main')->swap($plan);
+
+        return redirect('account')->with(['success' => 'Subscription updated.']);
     }
 
     /**
@@ -38,7 +47,7 @@ class AccountController extends Controller
      */
     public function deleteSubscription(Request $request)
     {
-        
+
     }
 
 }
