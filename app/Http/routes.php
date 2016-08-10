@@ -12,7 +12,7 @@ Route::post('subscribe', 'SubscribeController@processSubscribe');
 
 Route::group(['middleware' => 'auth'], function() {
     // welcome page
-    Route::get('welcome', 'SubscribeController@showWelcome');
+    Route::get('welcome', 'SubscribeController@showWelcome')->middleware('subscribed');
 
     // account routes
 
