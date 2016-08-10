@@ -24,6 +24,9 @@ Route::group(['middleware' => 'auth'], function() {
     // update credit card
     Route::post('account/card', 'AccountController@updateCard');
 
+    // download pdf 
+    Route::get('account/invoices/{invoice}', 'AccountController@downloadInvoice');
+
     // delete subscription
     Route::delete('account/subscription', 'AccountController@deleteSubscription');
 });

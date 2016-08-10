@@ -120,6 +120,9 @@
                     <tr>
                         <td>{{ $invoice->date()->toFormattedDateString() }}</td>
                         <td>{{ $invoice->total() }}</td>
+                        <td class="col-xs-2">
+                            <a href="/account/invoices/{{ $invoice->id }}" class="btn btn-primary btn-sm">Download</a>
+                        </td>
                     </tr>
                 @endforeach 
             </table>
