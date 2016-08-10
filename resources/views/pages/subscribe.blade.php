@@ -14,6 +14,8 @@
         
     <form action="/subscribe" method="POST" id="subscribe-form">
 
+        {!! csrf_field() !!}
+
         @if (Auth::guest())
         {{-- only show if not logged in --}}
         {{-- user info --}}
@@ -115,6 +117,14 @@
         </div>        
 
         <div class="stripe-errors"></div>
+
+        @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                {{ $error }}<br>
+            @endforeach
+        </div>
+        @endif
 
         <div class="form-group text-center">
             <button type="submit" class="btn btn-lg btn-success btn-block">Join</button>
